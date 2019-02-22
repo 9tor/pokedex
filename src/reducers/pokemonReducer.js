@@ -1,13 +1,16 @@
-const initialState = {};
+const initialState = {
+	pokemonMyCard:[], pokemonCardAll:[]
+}
 
 export default function(state = initialState, action) {
 	switch(action.type) {
-		case 'GET_POKEMON':
-		console.log('data',action.data);
-			return action.data || state;
-		case 'GET_ARTICLE_LATEST':
-			return initialState;
+		case 'SET_MY_POKEMON':
+			return {...state,  pokemonMyCard: action.myPokemon};
+		case 'GET_ALL_POKEMON':
+			return {...state, pokemonCardAll: action.data.cards }
+		case 'GET_MY_POKEMON':
+			return {...state}
 		default:
-			return state;
+			return state
 	}
 }
